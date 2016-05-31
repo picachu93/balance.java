@@ -1,15 +1,15 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-* File Name : Decimal2Ternary.java
+ * File Name : Decimal2Ternary.java
 
-* Purpose : Educational
+ * Purpose : Educational
 
-* Creation Date : 29-05-2016
+ * Creation Date : 29-05-2016
 
-* Last Modified : Sun 29 May 2016 11:09:23 PM EEST
+ * Last Modified : Tue 31 May 2016 03:05:13 PM EEST
 
-* Created By :  Stamatios Anoustis, Artemis Zografou
+ * Created By :  Stamatios Anoustis, Artemis Zografou
 
-_._._._._._._._._._._._._._._._._._._._._.*/
+ _._._._._._._._._._._._._._._._._._._._._.*/
 
 import java.util.*;
 import java.lang.*;
@@ -18,21 +18,31 @@ import java.io.*;
 /* Name of the class has to be "Main" only if the class is public. */
 public class Decimal2Ternary
 {
-        public static void main (String[] args) throws java.lang.Exception
-        {
-                 String output="";
-                 int n=15, rem;
-    while (n>0) {
-       rem = n%3;
-       n = n/3;
-       if (rem == 2) {
-           rem = -1;
-           n++;
-       }
-       output = (rem==0?'0':(rem==1)?'+':'-') + output;
-    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		String output="";
+		int N = 0, rem;
 
-    System.out.println(output);
-        }
+		if (args.length > 0){
+			try {
+				N = Integer.parseInt(args[0]);
+			}
+			catch (NumberFormatException e) {
+				System.err.println("N is not an ineger.");
+				System.exit(1);
+			}
+
+			while (N>0) {
+				rem = N%3;
+				N = N/3;
+				if (rem == 2) {
+					rem = -1;
+					N++;
+				}
+				output = (rem==0?'0':(rem==1)?'+':'-') + output;
+			}
+
+			System.out.println(output);
+		}
+	}
 }
-

@@ -39,7 +39,7 @@ JC = javac
 #
 
 CLASSES = \
-        FermatTest.java 
+        Decimal2Ternary.java 
 
 
 #
