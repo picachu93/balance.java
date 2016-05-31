@@ -5,7 +5,7 @@
 
  * Creation Date : 29-05-2016
 
- * Last Modified : Tue 31 May 2016 09:22:36 PM EEST
+ * Last Modified : Wed 01 Jun 2016 01:06:01 AM EEST
 
  * Created By :  Stamatios Anoustis, Artemis Zografou
 
@@ -27,8 +27,8 @@ public class Decimal2Ternary
 		int N = 1;
 		if (args.length > 0){
 			try {
-				W = new BigInteger(args[0]);
-				N = Integer.parseInt(args[1]);
+				N = Integer.parseInt(args[0]);
+				W = new BigInteger(args[1]);
 				rem = new BigInteger(args[0]);
 			}
 			catch (NumberFormatException e) {
@@ -48,15 +48,18 @@ public class Decimal2Ternary
 			counter++;
 		}
 
-		System.out.println(output);
-		System.out.println(counter);
+		//System.out.println(output);
+		//System.out.println(counter);
+		//System.out.println(output.charAt(0));
+		output = new StringBuilder(output).reverse().toString();
+		//System.out.println(output);
 		String output1 = "[";
 		String output2 = "[";
 
 
 		if (N >= counter)
 		{
-			for (i=0; i < N; i++)
+			for (i=0; i < counter; i++)
 			{
 				if (output.charAt(i) == '+'){
 					if (output1 != "[")
@@ -64,7 +67,7 @@ public class Decimal2Ternary
 					pow = new Integer(i+1);
 					output1 = output1 + pow.toString();	
 				}
-				else if  (output.charAt(i) == '+'){
+				else if  (output.charAt(i) == '-'){
 					if (output2 != "[")
 						output2 = output2 + ",";
 					pow = new Integer(i+1);
@@ -75,7 +78,7 @@ public class Decimal2Ternary
 			}
 			output1 = output1 + "]";
 			output2 = output2 + "]";
-			System.out.println(output1 + " " + output2);
+			System.out.println(output2 + " " + output1);
 
 		}
 		else{
