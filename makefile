@@ -39,7 +39,7 @@ JC = javac
 #
 
 CLASSES = \
-        Decimal2Ternary.java 
+        Balance.java 
 
 
 #
